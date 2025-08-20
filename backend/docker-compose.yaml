@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  amulyam-db:
+    image: postgres:14-alpine
+    ports:
+      - 5435:5432
+    volumes:
+      - ~/amulyam/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=root
+      - POSTGRES_DB=amulyam
+  # vividly-backend:
+  #   image: vidly-backend
+  #   ports:
+  #     - 8080:8080
+  #   environment:
+  #     - DB_DRIVER=postgres
+  #     - DB_SOURCE=postgresql://root:admin@vividly-db:5432/vividly?sslmode=disable
+  #     - LISTEN_ADDRESS=0.0.0.0:8080
+  #     - SECRET_KEY=12345678901234567890123456789012
+  #     - ACCESS_TOKEN_DURATION=15m
+  #     - REQUIRE_AUTH=true
